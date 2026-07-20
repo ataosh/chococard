@@ -255,7 +255,7 @@ ashita.events.register('command', 'command_cb', function(e)
         end
     elseif args[2] == 'display' then
 
-    elseif args[2] == 'padock' then
+    elseif args[2] == 'paddock' then
         if last[0x05B] == '' or 70 ~= struct.unpack('H', last[0x05B], 0x10+1) then return end -- chocobo circuit zone id
 
         local option = struct.unpack('H', last[0x05B], 0x08+1)
@@ -280,7 +280,7 @@ ashita.events.register('command', 'command_cb', function(e)
                 log_chocobo(tab)
             end
         elseif menu_id == last[0x034]:unpack('H', 0x2C+1) and bit.band(option, 0x07) == 0 then
-            -- crystal stakes padock
+            -- crystal stakes paddock
             -- incoming packet 0x05C 
             -- 0x04
             -- 0x08 affiliation

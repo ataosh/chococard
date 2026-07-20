@@ -6,6 +6,8 @@ Displays decoded extra data for chocobo items and packets while viewing the pado
 Commands:
 ```
 /cc log    - log info for all chocobo items found in your inventory
-/cc padock - log info for the chocobo currently being viewed at the padocks
+/cc paddock - log info for the chocobo currently being viewed at the paddocks
 ```
+
+>>>>>>> 6987099 (fix paddock spelling)
 Original windower addon by Ivaar: https://github.com/Ivaar/Windower-addons/tree/master/chococard
