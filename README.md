@@ -9,5 +9,4 @@ Commands:
 /cc paddock - log info for the chocobo currently being viewed at the paddocks
 ```
 
->>>>>>> 6987099 (fix paddock spelling)
 Original windower addon by Ivaar: https://github.com/Ivaar/Windower-addons/tree/master/chococard
