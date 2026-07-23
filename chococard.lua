@@ -193,6 +193,7 @@ ashita.events.register('packet_in', 'incoming chunk', function(e)
         last[0x034] = e.data
 
     elseif e.id == 0x05C then
+        --print(e.data)
         last[0x05C] = e.data
 
     elseif e.id == 0x05D then
@@ -262,7 +263,7 @@ ashita.events.register('command', 'command_cb', function(e)
         local menu_id = struct.unpack('H', last[0x05B], 0x12+1)
 
         if last[0x033] == '' and last[0x034] == '' then return end
-        if menu_id == struct.unpack('H', last[0x033], 0x0C+1) then
+        if string.len(last[0x033]) > 0x0C + 1 and menu_id == struct.unpack('H', last[0x033], 0x0C+1) then
             if option > 5 and option < 9 then
                 -- free runs and mission races
                 -- incoming packet 0x05C
@@ -279,7 +280,7 @@ ashita.events.register('command', 'command_cb', function(e)
                 end
                 log_chocobo(tab)
             end
-        elseif menu_id == last[0x034]:unpack('H', 0x2C+1) and bit.band(option, 0x07) == 0 then
+        elseif string.len(last[0x034]) > 0x2C + 1 and menu_id == struct.unpack('H', last[0x034], 0x2C+1) and bit.band(option, 0x07) == 0 then
             -- crystal stakes paddock
             -- incoming packet 0x05C 
             -- 0x04
