@@ -4,7 +4,7 @@ local breader = require 'bitreader';
 local chat  = require 'chat';
 
 addon.name     = 'chococard'
-addon.author   = 'Ivaar, secare'
+addon.author   = 'Ivaar, ported by secare'
 addon.version  = '0.1.0'
 addon.commands = {'chococard', 'cc'}
 
@@ -108,6 +108,9 @@ function unpack_choc(str, format, bytepos, bitpos)
         local reader = breader:new()
         reader:set_data(str)
         reader:set_pos(bytepos)
+        if bitpos ~= nil then
+            reader:read(bitpos)
+        end
         return (reader:read(1) ~= 0)
     elseif string.match(format, "b%d") ~= nil then -- return bits
         local bitstrings = {} 
